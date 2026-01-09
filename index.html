@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essence | Ropa Minimalista</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header y navegación */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: #222;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #222;
+        }
+
+        .iconos-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .iconos-header a {
+            color: #555;
+            margin-left: 20px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .iconos-header a:hover {
+            color: #222;
+        }
+
+        .iconos-header .carrito {
+            position: relative;
+        }
+
+        .contador-carrito {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #222;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero section */
+        .hero {
+            background-color: #f5f5f5;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #222;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #222;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: #444;
+        }
+
+        /* Sección de productos */
+        .seccion-productos {
+            margin-bottom: 80px;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            color: #222;
+            letter-spacing: 2px;
+        }
+
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .producto {
+            background-color: white;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .producto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .producto-imagen {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .producto-info {
+            padding: 20px;
+        }
+
+        .producto-titulo {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        .producto-precio {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .producto-boton {
+            background-color: transparent;
+            color: #222;
+            border: 1px solid #ddd;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .producto-boton:hover {
+            background-color: #222;
+            color: white;
+        }
+
+        /* Sección sobre nosotros */
+        .sobre-nosotros {
+            background-color: white;
+            padding: 80px 0;
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .sobre-nosotros h2 {
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: #222;
+            letter-spacing: 2px;
+        }
+
+        .sobre-nosotros p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #666;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 60px 0 30px;
+        }
+
+        .footer-contenido {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-columna h3 {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .footer-columna ul {
+            list-style: none;
+        }
+
+        .footer-columna ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-columna ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-columna ul li a:hover {
+            color: white;
+        }
+
+        .newsletter input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background-color: #333;
+            border: none;
+            color: white;
+        }
+
+        .newsletter input:focus {
+            outline: 1px solid #555;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin-top: 20px;
+            }
+
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .productos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">ESSENCE</a>
+            
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="iconos-header">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#" class="carrito">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="contador-carrito">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Ropa esencial, diseño atemporal</h1>
+            <p>Descubre nuestra colección minimalista de prendas de alta calidad diseñadas para durar. Piezas esenciales que se adaptan a tu estilo de vida.</p>
+            <a href="#productos" class="btn">Ver Colección</a>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section class="seccion-productos" id="productos">
+        <div class="container">
+            <h2 class="titulo-seccion">Nuestros Productos</h2>
+            
+            <div class="productos-grid">
+                <!-- Producto 1 -->
+                <div class="producto">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Suéter Minimalista" class="producto-imagen">
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">Suéter Minimalista</h3>
+                        <p class="producto-precio">$45.00</p>
+                        <button class="producto-boton">Añadir al carrito</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 2 -->
+                <div class="producto">
+                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Camiseta Básica" class="producto-imagen">
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">Camiseta Básica</h3>
+                        <p class="producto-precio">$25.00</p>
+                        <button class="producto-boton">Añadir al carrito</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 3 -->
+                <div class="producto">
+                    <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Pantalón de Vestir" class="producto-imagen">
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">Pantalón de Vestir</h3>
+                        <p class="producto-precio">$65.00</p>
+                        <button class="producto-boton">Añadir al carrito</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 4 -->
+                <div class="producto">
+                    <img src="https://images.unsplash.com/photo-1544441893-675973e31985?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Vestido Negro" class="producto-imagen">
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">Vestido Negro</h3>
+                        <p class="producto-precio">$75.00</p>
+                        <button class="producto-boton">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section class="sobre-nosotros" id="nosotros">
+        <div class="container">
+            <h2>Nuestra Filosofía</h2>
+            <p>En ESSENCE creemos en la simplicidad, la calidad y la atemporalidad. Nuestras prendas están diseñadas con líneas limpias, tejidos de primera calidad y una atención meticulosa a los detalles.</p>
+            <p>Cada pieza está pensada para ser versátil, duradera y cómoda, adaptándose a diferentes ocasiones y estilos personales. Nos enfocamos en lo esencial para crear un guardarropa consciente y minimalista.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-contenido">
+                <div class="footer-columna">
+                    <h3>ESSENCE</h3>
+                    <p>Ropa minimalista de calidad atemporal. Diseño limpio para un estilo consciente.</p>
+                </div>
+                
+                <div class="footer-columna">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-columna">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Calle Minimal 123, Ciudad</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope"></i> info@essence.com</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-columna">
+                    <h3>Newsletter</h3>
+                    <p>Suscríbete para recibir novedades y ofertas especiales.</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Tu correo electrónico">
+                        <button class="btn">Suscribirse</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 ESSENCE. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Funcionalidad básica para el carrito
+        document.querySelectorAll('.producto-boton').forEach(button => {
+            button.addEventListener('click', function() {
+                const producto = this.closest('.producto');
+                const titulo = producto.querySelector('.producto-titulo').textContent;
+                const precio = producto.querySelector('.producto-precio').textContent;
+                
+                // Actualizar contador del carrito
+                const contador = document.querySelector('.contador-carrito');
+                let cantidad = parseInt(contador.textContent);
+                contador.textContent = cantidad + 1;
+                
+                // Mostrar mensaje de confirmación
+                alert(`Has añadido "${titulo}" al carrito por ${precio}`);
+            });
+        });
+        
+        // Suscripción al newsletter
+        document.querySelector('.newsletter .btn').addEventListener('click', function() {
+            const emailInput = document.querySelector('.newsletter input');
+            if(emailInput.value) {
+                alert(`Gracias por suscribirte con el email: ${emailInput.value}`);
+                emailInput.value = '';
+            } else {
+                alert('Por favor, introduce tu email');
+            }
+        });
+        
+        // Navegación suave
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
